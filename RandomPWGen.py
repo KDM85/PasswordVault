@@ -21,7 +21,16 @@ listSC = [
 ]
 
 
-def GenPassword(intLength=8):
+def GenPassword(length: int = 8) -> str:
+    """
+    Returns a random password string
+
+        Parameters:
+            length (int): desired length of the password
+
+        Returns:
+            strOutput (str): a random password string
+    """
     # Default password length is eight characters
 
     # Lower case characters
@@ -52,7 +61,7 @@ def GenPassword(intLength=8):
         charSC2,
     ]
     # Append output list to meet character length
-    while len(listOutput) < intLength:
+    while len(listOutput) < length:
         intRand = random.randint(0, 3)
         if intRand == 0:
             charExtra = chr(random.randint(97, 122))
@@ -65,7 +74,7 @@ def GenPassword(intLength=8):
         listOutput.append(charExtra)
 
     # Randomize the order of the characters in the list
-    listOutputRandom = random.sample(listOutput, intLength)
+    listOutputRandom = random.sample(listOutput, length)
 
     strOutput = ""
     for k in listOutputRandom:
